@@ -1,0 +1,88 @@
+{
+  "name": "liangzimixin-test",
+  "version": "0.3.104-beta.4",
+  "description": "Quantum-encrypted IM channel plugin for OpenClaw",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "dist/quantum-sdk/",
+    "scripts/liangzimixin_install.sh",
+    "scripts/liangzimixin_install.bat",
+    "scripts/liangzimixin_install_test.sh",
+    "scripts/liangzimixin_install_test.bat",
+    "scripts/liangzimixin_install_test_beta.bat",
+    "openclaw.plugin.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "typecheck": "tsc --noEmit",
+    "format": "prettier --write src/**/*.ts",
+    "format:check": "prettier --check src/**/*.ts"
+  },
+  "peerDependencies": {
+    "openclaw": ">=2026.2.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/ws": "^8.18.1",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
+    "eslint": "^9.39.3",
+    "openclaw": "^2026.4.14",
+    "prettier": "^3.5.3",
+    "tsup": "^8.5.1",
+    "typescript": "^5.8.3",
+    "winston": "^3.19.0",
+    "winston-daily-rotate-file": "^5.0.0",
+    "ws": "^8.19.0",
+    "zod": "^4.3.6"
+  },
+  "keywords": [
+    "openclaw",
+    "liangzimixin",
+    "channel-plugin",
+    "instant-messaging",
+    "encryption"
+  ],
+  "openclaw": {
+
+    "compat": {
+      "pluginApi": ">=2026.3.8"
+    },
+    "build": {
+      "openclawVersion": ">=2026.3.8"
+    },
+    "extensions": [
+      "./dist/index.cjs"
+    ],
+    "setupEntry": "./dist/setup-entry.cjs",
+    "channel": {
+      "id": "liangzimixin-test",
+      "label": "QuantumIM",
+      "selectionLabel": "密信 IM (量子密信测试版)",
+      "docsPath": "/channels/liangzimixin-test",
+      "docsLabel": "liangzimixin-test",
+      "blurb": "密信 IM Channel，支持量子加密的安全即时通信。",
+      "aliases": [
+        "qim"
+      ],
+      "order": 80
+    },
+    "install": {
+      "npmSpec": "liangzimixin-test",
+      "localPath": "extensions/liangzimixin-test",
+      "defaultChoice": "npm"
+    }
+  },
+  "license": "MIT"
+}
